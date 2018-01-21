@@ -79,6 +79,54 @@ public constructor(index,data)
   }
 ```
 
+# OUTPUT
+```
+{
+  "chain": [
+    {
+      "index": 0,
+      "timestamp": "2018-01-21T12:52:27.140Z",
+      "data": {
+        "firstBlock": "Created By Aymen Naghmouchi"
+      },
+      "hashBlock": "5f7917e79d103391e47c77617f3481b1aaf040315852cf9295e95a2ad75eec79"
+    },
+    {
+      "index": 1,
+      "timestamp": "2018-01-21T12:52:27.142Z",
+      "data": {
+        "user": "Aymen Naghmouchi",
+        "Amount": 100
+      },
+      "hashBlock": "a79037a2bea4db561e6d4f8193fbc2760ed806eb914ed23d67ae67fe82d8d3f7",
+      "precedentHash": "5f7917e79d103391e47c77617f3481b1aaf040315852cf9295e95a2ad75eec79"
+    },
+    {
+      "index": 2,
+      "timestamp": "2018-01-21T12:52:27.143Z",
+      "data": {
+        "user": "Aymen Naghmouchi",
+        "Amount": 2500
+      },
+      "hashBlock": "b0aab5a00f06523009fea719933c9f089167499ccd9c24805fc6c27f465f16d7",
+      "precedentHash": "a79037a2bea4db561e6d4f8193fbc2760ed806eb914ed23d67ae67fe82d8d3f7"
+    },
+    {
+      "index": 3,
+      "timestamp": "2018-01-21T12:52:27.144Z",
+      "data": {
+        "user": "Aymen Naghmouchi",
+        "Amount": 50
+      },
+      "hashBlock": "5940f04870f8f33790ed1778a6233959136a09fec586e1c397b05286c4c5d7d0",
+      "precedentHash": "b0aab5a00f06523009fea719933c9f089167499ccd9c24805fc6c27f465f16d7"
+    }
+  ]
+}
+```
+
+
+
 ## How to use
 * git clone or fork it
 * npm install
