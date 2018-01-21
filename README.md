@@ -62,6 +62,8 @@ public constructor(index,data)
    this.chain.push(newBlock);
   }
 ```
+![Alt text](https://raw.githubusercontent.com/aymen94/simple-Blockchain/master/blockchain-aymen%20.jpg?raw=true "Blockchain")
+
 
 > check all blocks are linked  among them.
 ```
