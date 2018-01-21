@@ -3,8 +3,11 @@ import { Block } from './Block';
 
 export class BlockChain{
  private chain:Array<Block>;
- constructor(){
+ private miningDifficulty:number;
+
+ constructor(miningD:number){
    this.chain=new Array<Block>(new Block(0,{ firstBlock:"Created By Aymen Naghmouchi"}));
+   this.miningDifficulty=miningD;
  }
 
  public getLastBlock():Block{
@@ -13,9 +16,11 @@ export class BlockChain{
 
  public addBlock(newBlock:Block){
    newBlock.setPrecedentHash(this.getLastBlock().getHashBlock());
-   newBlock.generateHash();
+   newBlock.mineBlock(this.miningDifficulty);
    this.chain.push(newBlock);
   }
+
+ 
 
   public checkBlockChain():boolean{
     for(let i:number=1;i<this.chain.length;i++){
@@ -27,3 +32,4 @@ export class BlockChain{
     return true;
   }
 }
+

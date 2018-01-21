@@ -7,12 +7,14 @@ export class Block{
  private data:any;
  private precedentHash:any;
  private hashBlock:any;
+ private nonce:number;
 
  public constructor(index,data){
   this.index=index;
   this.timestamp=new Date();
   this.data=data;
   this.generateHash();
+  this.nonce=0;
  }
 
  public getHashBlock(){
@@ -26,6 +28,13 @@ export class Block{
    this.precedentHash=hash;
  }
  public  generateHash(){
- this.hashBlock=SHA256(this.index+this.precedentHash+this.timestamp+this.data);
+ this.hashBlock=SHA256(this.index+this.precedentHash+this.timestamp+this.data+this.nonce);
+  }
+
+  public mineBlock(miningDifficulty:number){
+    while(this.hashBlock.substring(0,miningDifficulty)!=Array(miningDifficulty+1).join('0')){
+      this.nonce++;
+      this.generateHash();
+    }
   }
 }

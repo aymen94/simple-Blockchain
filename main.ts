@@ -3,7 +3,7 @@ import { BlockChain } from './BlockChain';
 import { Block } from './block';
 
 
-var AyCoin = new BlockChain();
+var AyCoin = new BlockChain(3);
 
 AyCoin.addBlock(new Block(1,{user:"Aymen Naghmouchi",Amount:100}));
 AyCoin.addBlock(new Block(2,{user:"Aymen Naghmouchi",Amount:2500}));
