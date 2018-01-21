@@ -5,6 +5,8 @@ small tutorial with code to try to create your blockchain.
 
 I used typescript because is very easy to read/understand.
 
+-----------------------------------------------------------------------------------------------------
+
 ## Block.ts
 
 ### Instance variable
