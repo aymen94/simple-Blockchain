@@ -55,7 +55,7 @@ public mineBlock(miningDifficulty:number){
 ## BlockChain.ts
 ### Instance variable
 - chain:Array<Block> ===>  array of block,(better chained list).
-- miningDifficulty ===> the difficulty of mining expressed in numbers.
+- miningDifficulty ===> the difficulty of mining expressed in numbers(the more the number is high the more the difficulty increases).
  
  #### constructor BlockChain
  > as a parameter it takes the difficulty of mining. 
