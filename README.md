@@ -18,6 +18,9 @@ I used typescript because is very easy to read/understand.
 
 - hashBlock ===> hash of this block.
 
+- nonce ===>it has nothing to do with blocking, change to something random (example random number).
+
+
 #### constructor block
 ```
 public constructor(index,data)
@@ -32,17 +35,33 @@ public constructor(index,data)
  public setPrecedentHash(hash);
  
  public  generateHash();
+ 
 ```
 
+> Proof-of-work will secure, this serves the blockchain (similar bitcoin Hashcash)
+
+> more info https://en.wikipedia.org/wiki/Proof-of-work_system
+```
+public mineBlock(miningDifficulty:number){
+    while(this.hashBlock.substring(0,miningDifficulty)!=Array(miningDifficulty+1).join('0')){
+      this.nonce++;
+      this.generateHash();
+  }
+```
+
+-----------------------------------------------------------------------------------------------------------
 ## BlockChain.ts
 ### Instance variable
-- chain:Array<Block> ===>  array of block.
-  
+- chain:Array<Block> ===>  array of block,(better chained list).
+- miningDifficulty ===> the difficulty of mining expressed in numbers.
+ 
  #### constructor BlockChain
+ > as a parameter it takes the difficulty of mining. 
  > when to start the blockchain,add the first block (this block is without the previous hash block because is the first block)
   ```
- constructor(){
+ constructor(miningD){
    this.chain=new Array<Block>(new Block(0,{ firstBlock:"Created By Aymen Naghmouchi"}));
+   this.miningDifficulty=miningD;
  }
  ```
  
@@ -56,9 +75,9 @@ public constructor(index,data)
 
 > set the precedent block hash in the last added and regenerate her hash
 ```
- public addBlock(newBlock:Block){
-   newBlock.setPrecedentHash(this.getLastBlock().getHashBlock());   
-   newBlock.generateHash();
+ public addBlock(newBlock){
+   newBlock.setPrecedentHash(this.getLastBlock().getHashBlock());
+   newBlock.mineBlock(this.miningDifficulty);
    this.chain.push(newBlock);
   }
 ```
@@ -85,44 +104,50 @@ public constructor(index,data)
   "chain": [
     {
       "index": 0,
-      "timestamp": "2018-01-21T12:52:27.140Z",
+      "timestamp": "2018-01-21T14:23:12.424Z",
       "data": {
         "firstBlock": "Created By Aymen Naghmouchi"
       },
-      "hashBlock": "5f7917e79d103391e47c77617f3481b1aaf040315852cf9295e95a2ad75eec79"
+      "hashBlock": "47234aa1697b3fd20bc5db17b899ac0d1d6adc7608cbca7fbdcd515d89c81954",
+      "nonce": 0
     },
     {
       "index": 1,
-      "timestamp": "2018-01-21T12:52:27.142Z",
+      "timestamp": "2018-01-21T14:23:12.428Z",
       "data": {
         "user": "Aymen Naghmouchi",
         "Amount": 100
       },
-      "hashBlock": "a79037a2bea4db561e6d4f8193fbc2760ed806eb914ed23d67ae67fe82d8d3f7",
-      "precedentHash": "5f7917e79d103391e47c77617f3481b1aaf040315852cf9295e95a2ad75eec79"
+      "hashBlock": "0008d50dfd76575392335a0df6b82d52826c75ee827b0c639c77405dc40b22cc",
+      "nonce": 4636,
+      "precedentHash": "47234aa1697b3fd20bc5db17b899ac0d1d6adc7608cbca7fbdcd515d89c81954"
     },
     {
       "index": 2,
-      "timestamp": "2018-01-21T12:52:27.143Z",
+      "timestamp": "2018-01-21T14:23:12.515Z",
       "data": {
         "user": "Aymen Naghmouchi",
         "Amount": 2500
       },
-      "hashBlock": "b0aab5a00f06523009fea719933c9f089167499ccd9c24805fc6c27f465f16d7",
-      "precedentHash": "a79037a2bea4db561e6d4f8193fbc2760ed806eb914ed23d67ae67fe82d8d3f7"
+      "hashBlock": "0000c505fb52117656109daff8c9d18325b782b9674eb6f0d64840de43f0f0cc",
+      "nonce": 4302,
+      "precedentHash": "0008d50dfd76575392335a0df6b82d52826c75ee827b0c639c77405dc40b22cc"
     },
     {
       "index": 3,
-      "timestamp": "2018-01-21T12:52:27.144Z",
+      "timestamp": "2018-01-21T14:23:12.566Z",
       "data": {
         "user": "Aymen Naghmouchi",
         "Amount": 50
       },
-      "hashBlock": "5940f04870f8f33790ed1778a6233959136a09fec586e1c397b05286c4c5d7d0",
-      "precedentHash": "b0aab5a00f06523009fea719933c9f089167499ccd9c24805fc6c27f465f16d7"
+      "hashBlock": "000fd901ae1c2622cb9b48a801099d8f5c884d73b86402078cdf9eea78c787eb",
+      "nonce": 1479,
+      "precedentHash": "0000c505fb52117656109daff8c9d18325b782b9674eb6f0d64840de43f0f0cc"
     }
-  ]
+  ],
+  "miningDifficulty": 3
 }
+all blocks are linked? true
 ```
 
 
@@ -132,4 +157,11 @@ public constructor(index,data)
 * npm install
 * npm start
 
-### compile and execute
+### compile
+```
+tsc main.ts
+```
+### execute
+```
+node main.js
+```
