@@ -58,6 +58,9 @@ public constructor(index,data)
 ```
  public addBlock(newBlock:Block){
    newBlock.setPrecedentHash(this.getLastBlock().getHashBlock());   
+```
+> regenerates the hash block + the previous Hash.
+```
    newBlock.generateHash();
    this.chain.push(newBlock);
   }
