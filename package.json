@@ -1,0 +1,23 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "blockchai tutorial",
+  "main": "main.js",
+  "dependencies": {
+    "sha256": "^0.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "tsc main.ts",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "blockchain",
+    "javascript",
+    "typescript",
+    "learn",
+    "structure"
+  ],
+  "author": "Aymen Naghmouchi",
+  "license": "ISC"
+}
