@@ -40,7 +40,7 @@ public constructor(index,data)
  
 ```
 
-> Proof-of-work will secure, this serves the blockchain (similar bitcoin Hashcash)
+> Proof-of-work  is used to  make secure the blockchain(similar bitcoin Hashcash)
 
 > more info https://en.wikipedia.org/wiki/Proof-of-work_system
 ```
