@@ -59,7 +59,7 @@ public mineBlock(miningDifficulty:number){
  
  #### constructor BlockChain
  > as a parameter it takes the difficulty of mining. 
- > when to start the blockchain,add the first block (this block is without the previous hash block because is the first block)
+ > when to start the blockchain, add the first block (this block is without the previous hash block because is the first block)
   ```
  constructor(miningD){
    this.chain=new Array<Block>(new Block(0,{ firstBlock:"Created By Aymen Naghmouchi"}));
@@ -86,7 +86,7 @@ public mineBlock(miningDifficulty:number){
 ![Alt text](https://raw.githubusercontent.com/aymen94/simple-Blockchain/master/blockchain-aymen%20.jpg?raw=true "Blockchain")
 
 
-> check all blocks are linked  among them.
+> check all blocks are linked among them.
 ```
 
   public checkBlockChain():boolean{
