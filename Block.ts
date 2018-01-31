@@ -1,5 +1,5 @@
 //by Aymen Naghmouchi
-import  SHA256 =require('sha256');
+import  SHA256 =require('crypto-js/sha256');
 
 export class Block{
  private index:number;
@@ -28,7 +28,7 @@ export class Block{
    this.precedentHash=hash;
  }
  public  generateHash(){
- this.hashBlock=SHA256(this.index+this.precedentHash+this.timestamp+this.data+this.nonce);
+ this.hashBlock=SHA256(this.index+this.precedentHash+this.timestamp+this.data+this.nonce).toString();
   }
 
   public mineBlock(miningDifficulty:number){
