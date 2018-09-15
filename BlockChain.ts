@@ -1,4 +1,3 @@
-//by Aymen Naghmouchi
 import { Block } from './Block';
 
 export class BlockChain{
