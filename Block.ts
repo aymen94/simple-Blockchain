@@ -1,4 +1,3 @@
-//by Aymen Naghmouchi
 import  SHA256 =require('crypto-js/sha256');
 
 export class Block{
